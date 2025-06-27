@@ -45,9 +45,9 @@ fn test_script_classification() {
 
 #[test]
 fn test_outpoint_destructuring() {
-    let op = Outpoint("abcd1234".to_string(), 1);
+    let op = Outpoint("abcd1234".as_bytes().to_vec(), 1);
     let Outpoint(txid, vout) = op;
-    assert_eq!(txid, "abcd1234");
+    assert_eq!(String::from_utf8_lossy(&txid), "abcd1234");
     assert_eq!(vout, 1);
 }
 
