@@ -23,9 +23,7 @@ pub fn swap_endian_u32(num: u32) -> [u8; 4] {
 }
 
 pub fn parse_satoshis(input: &str) -> Result<u64, String> {
-    input
-        .parse::<u64>()
-        .map_err(|_| "Invalid satoshi amount".to_string())
+    input.parse::<u64>().map_err(|_| "Invalid satoshi amount".to_string())
 }
 
 pub enum ScriptType {
@@ -54,11 +52,7 @@ pub fn classify_script(script: &[u8]) -> ScriptType {
 pub struct Outpoint(pub Vec<u8>, pub u32);
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
-    if script.len() > 2 {
-        &script[2..]
-    } else {
-        &[]
-    }
+    if script.len() > 2 { &script[2..] } else { &[] }
 }
 
 pub trait Wallet {
