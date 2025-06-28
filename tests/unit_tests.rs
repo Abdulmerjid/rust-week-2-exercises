@@ -1,5 +1,5 @@
-use rust_week_2_exercises::*;
 use hex::decode;
+use rust_week_2_exercises::*;
 
 #[test]
 fn test_decode_hex_and_endianness() {
